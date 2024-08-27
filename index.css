@@ -1,0 +1,187 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #e5e5e5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    overflow-y: auto;   /* Allow vertical scrolling */
+    height: 100%; /* Ensure body takes full height of viewport */
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em;
+    transition: transform 0.5s ease;
+    overflow: visible;
+    height: 900px; /* Default auto height, adjust this as needed */
+    min-height: 100vh; /* Ensures it can stretch to the full height of the viewport */
+}
+
+h1 {
+    font-size: clamp(24px, 8vw, 48px);
+    color: #000000;
+    text-transform: uppercase;
+    margin: 1em 0;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0;
+    overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+    justify-content: flex-start;
+    position: relative;
+}
+
+.card {
+    flex: 0 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 780px;
+    max-height: 780px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+    border: 5px solid white;
+    transition: flex-basis 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+    margin-right: -5px;
+}
+
+#card1 { background-image: url(Brian.jpg); }
+#card2 { background-image: url(alien.jpg); }
+#card3 { background-image: url(ella.jpg); }
+#card4 { background-image: url(Kat.jpg); }
+#card5 { background-image: url(Jo.jpg); }
+
+.card.expanded {
+    flex: 0 0 500px;
+    height: 780px;
+    max-height: none;
+    transform: scale(1.02);
+    margin-right: 10px;
+    margin-left: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-color: transparent;
+}
+
+.card-body {
+    background: rgba(45, 45, 45, 0.7);
+    padding: 2em;
+    width: 100%;
+    transition: background 0.5s ease;
+}
+
+.title {
+    position: relative;
+    color: #fff;
+    transition: all 0.5s ease;
+    margin-top: auto;
+}
+
+.card.expanded h2 {
+    transform: scale(1.1);
+}
+
+p {
+    font-size: 16px;
+    color: #fff;
+    margin: 1em 0 0 0;
+    opacity: 0;
+    max-height: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.card.expanded p {
+    opacity: 1;
+    max-height: 500px;
+    transition-delay: 0.2s;
+}
+
+.Desc h1 {
+    color: white;
+    transform: translate(-460px, -30px);
+}
+
+.Description {
+    color: white;
+    transform: translate(10px, -80px);
+}
+
+.Brian H1 {
+    transform: translate(-600px, -90px);
+    font-size: 20px;
+    color: white;
+}
+
+.Brian ul {
+    transform: translate(20px, -110px);
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    .card {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: clamp(18px, 6vw, 36px);
+    }
+
+    .card {
+        height: 300px;
+    }
+
+    .card.expanded {
+        flex: 0 0 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .card {
+        width: 100%;
+        flex: none;
+        margin-right: 0;
+    }
+
+    .card.expanded {
+        transform: none;
+    }
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-image: url(bg.jpg);
+}
+
+.body {
+    transform: translate(665px, -900px);
+}
